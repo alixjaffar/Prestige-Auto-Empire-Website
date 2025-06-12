@@ -1,0 +1,1030 @@
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #ffffff;
+    --accent-color: #c8a97e;
+    --text-color: #333333;
+    --overlay-color: rgba(0, 0, 0, 0.5);
+    --spacing-unit: 1rem;
+    --detailing-bg: #f4f6fa;
+    --detailing-card-bg: #fff;
+    --detailing-accent: #c8a97e;
+    --detailing-title: #232526;
+    --detailing-sub: #555;
+    --main-gradient-top: #5b21b6; /* Purple */
+    --main-gradient-middle: #a855f7; /* Magenta */
+    --main-gradient-bottom: #f59e0b; /* Orange-yellow */
+    --gold-gradient-start: #ffdd44; /* Bright gold */
+    --gold-gradient-middle: #ffd700; /* Gold */
+    --gold-gradient-end: #ffa500; /* Darker orange-gold */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--secondary-color); /* Changed to white */
+    font-weight: normal;
+}
+
+/* Header Styles */
+.site-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(26, 26, 26, 0.9); /* Dark, semi-transparent background as per screenshot */
+    padding: 1.5rem 4rem;
+    z-index: 1000;
+    box-shadow: none;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: normal;
+    text-decoration: none;
+    color: var(--secondary-color);
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 50px;
+    vertical-align: middle;
+    width: auto;
+    margin-right: 8px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    flex-grow: 1;
+    justify-content: flex-end; /* Align links to the right as per screenshot */
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.nav-links a {
+    font-family: 'Playfair Display', serif;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: normal;
+    transition: color 0.3s;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-color: var(--primary-color);
+    background-image: url('R8.jpeg'); /* Updated to match exact filename */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: ''; /* Add dark overlay as per screenshot */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+    z-index: 0;
+}
+
+.hero::after {
+    content: none; /* Removed after pseudo-element */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Ensure content is above overlay */
+    max-width: 900px;
+    padding: 0 2rem;
+    backdrop-filter: none; /* Remove blur from content */
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 5rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: none;
+    color: #ffffff; /* Ensure h1 text is white */
+    -webkit-text-fill-color: initial; /* Reset text fill color */
+    -webkit-background-clip: initial; /* Reset background clip */
+    background-image: none; /* Remove text gradient */
+}
+
+.system-text {
+    color: #cccccc; /* Lighter gray for 'System' */
+}
+
+.hero-sub {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    letter-spacing: 0.05em;
+}
+
+.hero .btn {
+    font-family: 'Playfair Display', serif;
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.hero .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-color);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.hero .btn:hover {
+    color: var(--primary-color);
+}
+
+.hero .btn:hover::before {
+    transform: translateX(100%);
+}
+
+/* Awards Section */
+.awards {
+    padding: 6rem 2rem;
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+.awards h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    margin-bottom: 3.5rem;
+    font-weight: normal;
+    letter-spacing: 0.03em;
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.award {
+    padding: 2rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.award:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Services Section */
+.services {
+    padding: 6rem 2rem;
+    background-color: #f8f8f8;
+}
+
+.services h2 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.btn {
+    font-family: 'Playfair Display', serif;
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
+    background-color: transparent;
+    color: var(--secondary-color);
+    text-decoration: none;
+    border: 2px solid var(--secondary-color);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-color);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.btn:hover {
+    color: var(--primary-color);
+}
+
+.btn:hover::before {
+    transform: translateX(100%);
+}
+
+/* Footer */
+.site-footer {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 2rem 0 1rem 0;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .service-content h2 {
+        font-size: 3rem;
+    }
+
+    .service-content p {
+        font-size: 1.2rem;
+    }
+
+    .price-tag {
+        font-size: 1.2rem;
+        padding: 0.75rem 1.5rem;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .service-item {
+        padding: 0 5%;
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+    }
+}
+
+/* Service Showcase Section */
+.service-showcase {
+    display: flex;
+    flex-direction: row; /* Change to row for side by side */
+    justify-content: center;
+    align-items: stretch;
+    padding: 0;
+    gap: 0;
+    background-color: var(--primary-color);
+}
+
+.service-item {
+    height: 100vh;
+    width: 50%; /* Each item takes half the width */
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 5%;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    transition: transform 0.5s ease;
+}
+
+.service-item .service-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    border-radius: 1.5rem; /* Match parent border-radius */
+}
+
+.service-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2); /* Reduced opacity for better visibility of background image */
+    transition: background-color 0.3s ease;
+    z-index: 1;
+    border-radius: 1.5rem;
+}
+
+.service-item:hover::before {
+    background: rgba(0, 0, 0, 0.1); /* Reduced opacity on hover */
+}
+
+.gold {
+    background-image: url('Detailing.png'); /* Updated to match exact filename */
+}
+
+.platinum {
+    background-image: url('tint.jpg'); /* This one was already correct */
+}
+
+.service-content {
+    position: relative;
+    z-index: 2;
+    color: var(--secondary-color); /* Keep white text for contrast with image overlay */
+    max-width: 600px;
+    opacity: 1; /* Make content immediately visible */
+    transform: translateY(0); /* Remove initial translateY */
+    animation: none; /* Remove fade up animation */
+    padding: 3rem; /* Add padding for content spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: initial;
+    width: 100%; /* Ensure content takes full width */
+    justify-content: center; /* Center content vertically */
+    height: 100%; /* Ensure content takes full height */
+}
+
+.service-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.2rem;
+    font-weight: normal;
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--secondary-color); /* Ensure h2 is white */
+}
+
+.service-content p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    color: var(--secondary-color); /* Ensure p is white */
+}
+
+.service-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+    gap: 1rem;
+    width: 100%;
+}
+
+.service-actions .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--secondary-color); /* White text */
+    background: var(--primary-color); /* Dark background */
+    border: initial;
+    font-weight: normal;
+    padding: 0.4em 1.2em;
+    border-radius: 2rem;
+    margin: 0;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.service-actions .btn {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 2rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+.service-actions .btn:hover {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.price-tag {
+    font-family: 'Playfair Display', serif;
+    background-color: var(--primary-color); /* Dark background */
+    color: var(--secondary-color); /* White text */
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-weight: normal;
+    border-radius: 50px; /* Oval shape */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: initial;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.modern-service {
+    /* background: linear-gradient(120deg, #232526 0%, #414345 100%); */ /* Removed conflicting background */
+    border: 2px solid var(--accent-color);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    margin-bottom: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.modern-service .service-content {
+    color: var(--secondary-color); /* Ensure content text is white */
+    padding: 2.5rem 2rem;
+    text-align: center; /* Center text within content */
+}
+.modern-service h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.modern-service p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+}
+.modern-service .btn {
+    font-family: 'Playfair Display', serif;
+    margin-top: 1rem;
+}
+.modern-service .price-tag {
+    font-family: 'Playfair Display', serif;
+    margin-top: 1.5rem;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: normal;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.modern-service:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.22);
+    border-color: var(--secondary-color);
+}
+
+@media (max-width: 900px) {
+    .modern-service .service-content {
+        padding: 1.5rem 1rem;
+    }
+    .modern-service h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Main Choices Section (Home Page) */
+.main-choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    gap: 3rem;
+    background: linear-gradient(120deg, #232526 0%, #414345 100%);
+}
+
+.choice-box {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    padding: 3rem 2.5rem;
+    min-width: 260px;
+    max-width: 320px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid var(--accent-color);
+}
+
+.choice-box:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.25);
+    border-color: var(--secondary-color);
+}
+
+.choice-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.choice-box p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    opacity: 0.85;
+    font-weight: normal;
+}
+
+.choice-box img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detailing-choice {
+    background-image: url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 0;
+}
+
+.tinting-choice {
+    background-image: url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 0;
+}
+
+.detailing-choice::before,
+.tinting-choice::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--overlay-color);
+    border-radius: 1.5rem;
+    z-index: -1;
+}
+
+/* Responsive for main choices */
+@media (max-width: 900px) {
+    .main-choices {
+        flex-direction: column;
+        gap: 2rem;
+        min-height: 60vh;
+    }
+}
+
+/* Hero Section for Detailing Page */
+.hero-detailing {
+    height: 40vh;
+    background: linear-gradient(120deg, #232526 0%, #414345 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+.hero-detailing .hero-content {
+    z-index: 1;
+}
+
+.hero-detailing h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero-sub {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.3rem;
+    opacity: 0.85;
+}
+
+.suntek-logo {
+    max-width: 150px;
+    height: auto;
+    margin-top: 1.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Detailing Grid */
+.detailing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.package {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+    padding: 2rem 1.5rem 2.5rem 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid var(--accent-color);
+}
+
+.package:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.18);
+    border-color: var(--secondary-color);
+}
+
+.package img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+.package h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.package .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+.package p {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+}
+
+@media (max-width: 900px) {
+    .detailing-grid {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
+    .hero-detailing h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Enhanced Clean Detailing Page Styles */
+.detailing-clean {
+  background: var(--detailing-bg);
+  box-shadow: none;
+  border: none;
+  padding-bottom: 5rem;
+}
+.clean-package {
+  background: var(--detailing-card-bg);
+  color: var(--detailing-title);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.08);
+  border: 1.5px solid #e5e7eb;
+  padding: 2.8rem 2.2rem 2.2rem 2.2rem;
+  margin-bottom: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  min-height: 270px;
+  position: relative;
+  border-left: 8px solid var(--detailing-accent);
+}
+
+.clean-package .service-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.clean-package .price {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  color: var(--secondary-color);
+  background: var(--primary-color);
+  font-weight: normal;
+  padding: 0.4em 1.2em;
+  border-radius: 2rem;
+  margin: 0;
+  letter-spacing: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.clean-package .btn {
+  font-family: 'Playfair Display', serif;
+  margin: 0.5rem auto 0 auto;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  background: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 2rem;
+  font-weight: normal;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  text-align: center;
+  display: block;
+  max-width: fit-content;
+}
+
+.clean-package .btn:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.clean-package h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: #232526;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.clean-package p {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  color: var(--detailing-sub);
+  line-height: 1.6;
+  font-weight: normal;
+}
+
+@media (max-width: 768px) {
+  .clean-package .service-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .clean-package .price {
+    font-size: 1.8rem;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .clean-package .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Contact Page Styles */
+.contact-section {
+    padding: 4rem 2rem;
+    background-color: var(--detailing-bg);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: normal;
+}
+
+.phone-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--accent-color);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.contact-info {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    opacity: 0.9;
+    font-weight: normal;
+}
+
+@media (max-width: 768px) {
+    .contact-content h2 {
+        font-size: 2rem;
+    }
+    .phone-number {
+        font-size: 2.5rem;
+    }
+    .contact-info {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .service-actions .price {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    .service-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Update responsive design for service showcase */
+@media (max-width: 768px) {
+    .service-showcase {
+        flex-direction: column;
+    }
+    
+    .service-item {
+        width: 100%;
+        height: 50vh;
+    }
+}
